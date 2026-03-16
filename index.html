@@ -1,23 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Water Quest</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <div class="container">
-    <h1>Water Quest</h1>
-    <p class="game-instructions">Collect 20 items to complete the game!</p>
-    <div class="stats">
-      <p>Cans Collected: <span id="current-cans">0</span></p>
-      <p>Time Left: <span id="timer">30</span>s</p>
-    </div>
-    <div id="achievements" class="achievement"></div>
-    <div class="game-grid"></div>
-    <button id="start-game">Start Game</button>
-  </div>
+  <main class="page-shell">
+    <section class="game-shell">
+      <header class="game-header">
+        <div class="title-block">
+          <img src="img/cw_logo_horizontal.png" alt="charity: water logo" class="brand-logo">
+          <h1>Water Quest</h1>
+          <p class="subtitle">Tap the jerry cans before the timer runs out.</p>
+        </div>
+
+        <section class="scoreboard" aria-label="Game stats">
+          <p>Score: <span id="current-cans">0</span></p>
+          <p>Time: <span id="timer">30</span>s</p>
+          <p>Level: <span id="level">1</span></p>
+          <p>Best: <span id="best-score">0</span></p>
+        </section>
+      </header>
+
+      <section class="game-layout">
+        <div class="board-column">
+          <div class="feedback-strip" aria-live="polite">
+            <div class="feedback-top-row">
+              <div>
+                <p id="combo-text">Ready to play</p>
+                <p id="achievements">Press Start to begin your run.</p>
+                <p id="status-text">Reach 20 points to win.</p>
+              </div>
+              <div class="timer-badge" aria-label="Main timer">
+                <span class="timer-label">Time Left</span>
+                <span class="timer-badge-value"><span id="timer-main">30</span>s</span>
+              </div>
+            </div>
+            <div id="confetti" class="confetti" aria-hidden="true"></div>
+          </div>
+
+          <div class="game-grid" aria-label="Water can game board"></div>
+        </div>
+
+        <aside class="side-panel">
+          <h2>How to Play</h2>
+          <p>Tap the yellow jerry can as it appears on the board.</p>
+          <p>Missed cans cost 1 point if your score is above 0.</p>
+          <p>Hit 20 points before 30 seconds ends to win.</p>
+
+          <section class="milestone-panel" aria-label="Milestone progress">
+            <p id="milestone-label">Next Milestone: 10 points</p>
+            <div class="progress-track">
+              <div id="milestone-fill" class="progress-fill"></div>
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <nav class="controls" aria-label="Game controls">
+        <button id="start-game" type="button">Start</button>
+        <button id="pause-game" type="button">Pause</button>
+        <button id="sound-toggle" type="button">Sound On</button>
+        <button id="reset-game" type="button">Restart</button>
+        <button id="quit-game" type="button">Quit</button>
+      </nav>
+    </section>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>
