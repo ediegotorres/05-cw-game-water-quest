@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Water Quest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
   <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -47,11 +50,20 @@
         <aside class="side-panel">
           <h2>How to Play</h2>
           <p>Tap the yellow jerry can as it appears on the board.</p>
-          <p>Missed cans cost 1 point if your score is above 0.</p>
-          <p>Hit 20 points before 30 seconds ends to win.</p>
+          <p id="difficulty-summary">Normal mode: score 20 points in 30 seconds. Missed cans cost 1 point.</p>
+
+          <section class="difficulty-panel" aria-label="Difficulty modes">
+            <h3>Choose Difficulty</h3>
+            <div class="difficulty-buttons" role="group" aria-label="Difficulty selection">
+              <button class="difficulty-button" data-difficulty="easy" type="button">Easy</button>
+              <button class="difficulty-button active" data-difficulty="normal" type="button">Normal</button>
+              <button class="difficulty-button" data-difficulty="hard" type="button">Hard</button>
+            </div>
+          </section>
 
           <section class="milestone-panel" aria-label="Milestone progress">
             <p id="milestone-label">Next Milestone: 10 points</p>
+            <p id="milestone-message">Start your run to unlock milestone messages.</p>
             <div class="progress-track">
               <div id="milestone-fill" class="progress-fill"></div>
             </div>
@@ -68,6 +80,14 @@
       </nav>
     </section>
   </main>
+
+  <footer class="site-footer" aria-label="charity water links">
+    <p>Play for awareness. Support real clean water projects through charity: water.</p>
+    <div class="footer-links">
+      <a href="https://www.charitywater.org/" target="_blank" rel="noreferrer">Visit charity: water</a>
+      <a href="https://www.charitywater.org/donate" target="_blank" rel="noreferrer">Donate to clean water projects</a>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

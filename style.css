@@ -17,7 +17,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Avenir, "Trebuchet MS", Arial, sans-serif;
+  font-family: "Nunito", Avenir, "Trebuchet MS", Arial, sans-serif;
   color: var(--cw-ink);
   background:
     radial-gradient(circle at top left, rgba(255, 201, 7, 0.24), transparent 26%),
@@ -57,6 +57,7 @@ body {
 
 .title-block h1 {
   margin: 0;
+  font-family: "League Spartan", "Nunito", sans-serif;
   font-size: clamp(2.4rem, 4vw, 3.8rem);
   font-weight: 800;
   line-height: 0.95;
@@ -213,6 +214,10 @@ body {
   animation: popIn 0.18s ease-out;
 }
 
+.water-can.collected {
+  animation: collectSpin 0.22s ease-out forwards;
+}
+
 .water-can:hover,
 .water-can:focus-visible {
   transform: scale(1.07) translateY(-2px) rotate(-2deg);
@@ -233,6 +238,7 @@ body {
 
 .side-panel h2 {
   margin: 0 0 10px;
+  font-family: "League Spartan", "Nunito", sans-serif;
   font-size: 1.45rem;
   font-weight: 700;
 }
@@ -258,6 +264,57 @@ body {
   margin: 0 0 8px;
   text-align: left;
   font-size: 0.92rem;
+}
+
+#milestone-message {
+  color: rgba(255, 255, 255, 0.82);
+  min-height: 2.2em;
+}
+
+.difficulty-panel {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding: 12px 14px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.difficulty-panel h3 {
+  margin: 0 0 10px;
+  font-family: "League Spartan", "Nunito", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.difficulty-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.difficulty-button {
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.difficulty-button:hover,
+.difficulty-button:focus-visible {
+  background: rgba(255, 255, 255, 0.24);
+  transform: translateY(-1px);
+}
+
+.difficulty-button.active {
+  background: var(--cw-yellow);
+  border-color: rgba(255, 201, 7, 0.75);
+  color: #12324a;
 }
 
 .progress-track {
@@ -306,6 +363,38 @@ body {
   cursor: not-allowed;
 }
 
+.site-footer {
+  max-width: 1400px;
+  margin: 16px auto 0;
+  padding: 16px 18px 28px;
+  text-align: center;
+  color: rgba(22, 53, 77, 0.88);
+}
+
+.site-footer p {
+  margin: 0 0 10px;
+  font-size: 0.98rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--cw-blue-deep);
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--cw-blue);
+}
+
 .confetti {
   position: absolute;
   inset: 0;
@@ -343,6 +432,18 @@ body {
   to {
     opacity: 0;
     transform: translateY(140px) rotate(360deg);
+  }
+}
+
+@keyframes collectSpin {
+  from {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.18) rotate(18deg);
   }
 }
 
@@ -429,5 +530,10 @@ body {
 
   .controls button {
     flex: 1 1 140px;
+  }
+
+  .site-footer {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 }
